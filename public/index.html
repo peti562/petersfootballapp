@@ -1,22 +1,554 @@
 <!DOCTYPE html>
-<html class="no-js">
+<html>
 
 <head>
-    <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <link rel="stylesheet" type="text/css" href="bootstrap/dist/css/bootstrap.min.css">
-    <link rel="stylesheet" type="text/css" href="font-awesome/css/font-awesome.min.css">
-    <link rel="stylesheet" type="text/css" href="style.css">
-    <title>QuickStat</title>
-
-    <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link href='https://fonts.googleapis.com/css?family=Poppins' rel='stylesheet' type='text/css'>
+  <link href='https://fonts.googleapis.com/css?family=Merriweather' rel='stylesheet' type='text/css'>
+  <link href="bootstrap/dist/css/bootstrap.css" rel="stylesheet">
+  <link rel="stylesheet" type="text/css" href="css/index.css">
+  <title>Liverpool</title>
+  <script type="text/javascript" src="jquery/dist/jQuery.js"></script>
+</head>
 </head>
 
 <body>
-    <script type="text/javascript" src="jquery/dist/jquery.min.js"></script>
+  <nav>
+    <div id="lowernav">
+      <img id="headerImage" src="https://resources-pl.pulselive.com/ver/i/elements/premier-league-logo-header.svg">
+      <div id="teamsmenu">
+<img class="teamlogos" id="Bournemouth" src="https://upload.wikimedia.org/wikipedia/de/4/41/Afc_bournemouth.svg">
+<img class="teamlogos" id="Arsenal" src="http://upload.wikimedia.org/wikipedia/en/5/53/Arsenal_FC.svg">
+<img class="teamlogos" id="Brighton" src="https://upload.wikimedia.org/wikipedia/en/f/fd/Brighton_&_Hove_Albion_logo.svg">
+<img class="teamlogos" id="Burnley" src="https://upload.wikimedia.org/wikipedia/en/0/02/Burnley_FC_badge.png">
+<img class="teamlogos" id="Chelsea" src="http://upload.wikimedia.org/wikipedia/de/5/5c/Chelsea_crest.svg">
+<img class="teamlogos" id="Crystal Palace" src="http://upload.wikimedia.org/wikipedia/de/b/bf/Crystal_Palace_F.C._logo_(2013).png">
+<img class="teamlogos" id="Everton" src="http://upload.wikimedia.org/wikipedia/de/f/f9/Everton_FC.svg">
+<img class="teamlogos" id="Huddersfield" src="https://upload.wikimedia.org/wikipedia/en/5/5a/Huddersfield_Town_A.F.C._logo.svg">
+<img class="teamlogos" id="Leicester" src="http://upload.wikimedia.org/wikipedia/en/6/63/Leicester02.png">
+<img class="teamlogos" id="Liverpool" src="http://upload.wikimedia.org/wikipedia/de/0/0a/FC_Liverpool.svg">
+<img class="teamlogos" id="Man City" src="https://upload.wikimedia.org/wikipedia/en/e/eb/Manchester_City_FC_badge.svg">
+<img class="teamlogos" id="Man United" src="http://upload.wikimedia.org/wikipedia/de/d/da/Manchester_United_FC.svg">
+<img class="teamlogos" id="Newcastle" src="http://upload.wikimedia.org/wikipedia/de/5/56/Newcastle_United_Logo.svg">
+<img class="teamlogos" id="Southampton" src="http://upload.wikimedia.org/wikipedia/de/c/c9/FC_Southampton.svg">
+<img class="teamlogos" id="Stoke" src="http://upload.wikimedia.org/wikipedia/de/a/a3/Stoke_City.svg">
+<img class="teamlogos" id="Swansea" src="http://upload.wikimedia.org/wikipedia/de/a/ab/Swansea_City_Logo.svg">
+<img class="teamlogos" id="Tottenham" src="http://upload.wikimedia.org/wikipedia/de/b/b4/Tottenham_Hotspur.svg">
+<img class="teamlogos" id="Watford" src="https://upload.wikimedia.org/wikipedia/en/e/e2/Watford.svg">
+<img class="teamlogos" id="West Brom" src="http://upload.wikimedia.org/wikipedia/de/8/8b/West_Bromwich_Albion.svg">
+<img class="teamlogos" id="West Ham" src="http://upload.wikimedia.org/wikipedia/de/e/e0/West_Ham_United_FC.svg">
+      </div>
+    </div>
+    <ul id="navmenu">
+      <li><a href="/index.html">Home Page</a></li>
+      <li><a href="/news.html">Football News</a></li>
+    </ul>
+
+
+    <div id="SeasonSelector">
+    <li><a>Season selector:</a>
+    <button type="button" class="btn btn-info btn-block" id="submitSeason">Submit</button>
+    <select class="form-control" id="selectSeason">
+    </select>
+    </li>
+    </div>
+    
+
+  </nav>
+  
+
+  <section class="team" id="team">
+    <section class="night-life teamrow" id="night-life">
+      <div class="row teamDetails">
+      </div>
+    </section>
+    <section class="teamStats1 teamrow" id="teamStats1">
+      <div class="row statsRow">
+      </div>
+    </section>
+  </section>
+
+    <script id="statColumns-template" type="text/x-handlebars-template">
+      <div class="column leftStats visible" id="boom">
+        <div class="table">
+          <div class="list-group">
+            <li class="list-group-item list-group-item-action headerr noborder">
+              <div class="position">Pos</div>
+              <div class="tableTeam">Team</div>
+              <div class="points">P</div>
+              <div class="goaldifference">GD</div>
+              <div class="played">MP</div>
+            </li>
+            <div class="fixtures"></div>
+          </div>
+        </div>
+      </div>
+      <div class="column rightStats visible" id="boom2">
+        <div class="hello" id="boom1">
+          <p class="helloHead">Hello!</p>
+          <p class="helloBody">This is our supercool website for stats and other very cool stuff. I should have written something useful here but I am just too tired.</p>
+          <p class="helloPara">I bet you gave up already and not even reading this line, but if you do, please check out the team comparison box just below or you can select a team on the top to see their own supercool site.</p>
+        </div>
+        <div class="search" id="chartfield">
+          <div class="form-group" id="searchForm">
+            <div class="formheadline">Please pick the teams to compare</div>
+            <select class="form-control" id="selTeamA">
+              <option value="Arsenal">Arsenal</option>
+              <option value="Leicester">Leicester</option>
+              <option value="Watford">Watford</option>
+              <option value="Liverpool">Liverpool</option>
+              <option value="Southampton">Southampton</option>
+              <option value="Swansea">Swansea</option>
+              <option value="Newcastle">Newcastle</option>
+              <option value="Tottenham">Tottenham Hotspur</option>
+              <option value="Man United">Manchester United</option>
+              <option value="West Ham">West Ham United</option>
+              <option value="Everton">Everton</option>
+              <option value="Stoke">Stoke City</option>
+              <option value="Crystal Palace">Crystal Palace</option>
+              <option value="Chelsea">Chelsea</option>
+              <option value="Burnley">Burnley</option>
+              <option value="Man City">Manchester City FC</option>
+              <option value="West Brom">West Bromwich Albion FC</option>
+              <option value="Bournemouth">Bournemouth</option>
+            </select>
+            <select class="form-control" id="selTeamB">
+              <option value="Arsenal">Arsenal</option>
+              <option value="Leicester">Leicester</option>
+              <option value="Watford">Watford</option>
+              <option value="Liverpool">Liverpool</option>
+              <option value="Southampton">Southampton</option>
+              <option value="Swansea">Swansea</option>
+              <option value="Newcastle">Newcastle</option>
+              <option value="Tottenham">Tottenham Hotspur</option>
+              <option value="Man United">Manchester United</option>
+              <option value="West Ham">West Ham United</option>
+              <option value="Everton">Everton</option>
+              <option value="Stoke">Stoke City</option>
+              <option value="Crystal Palace">Crystal Palace</option>
+              <option value="Chelsea">Chelsea</option>
+              <option value="Burnley">Burnley</option>
+              <option value="Man City">Manchester City FC</option>
+              <option value="West Brom">West Bromwich Albion FC</option>
+              <option value="Bournemouth">Bournemouth</option>
+            </select>
+            <div class="formheadline2">Please pick start and end date</div>
+            <select class="form-control" id="selDayFrom">
+              <option value="01">1</option>
+              <option value="02">2</option>
+              <option value="03">3</option>
+              <option value="04">4</option>
+              <option value="05">5</option>
+              <option value="06">6</option>
+              <option value="07">7</option>
+              <option value="08">8</option>
+              <option value="09">9</option>
+              <option value="10">10</option>
+              <option value="11">11</option>
+              <option value="12">12</option>
+              <option value="13">13</option>
+              <option value="14">14</option>
+              <option value="15">15</option>
+              <option value="16">16</option>
+              <option value="17">17</option>
+              <option value="18">18</option>
+              <option value="19">19</option>
+              <option value="20">20</option>
+              <option value="21">21</option>
+              <option value="22">22</option>
+              <option value="23">23</option>
+              <option value="24">24</option>
+              <option value="25">25</option>
+              <option value="26">26</option>
+              <option value="27">27</option>
+              <option value="28">28</option>
+              <option value="29">29</option>
+              <option value="30">30</option>
+              <option value="31">31</option>
+            </select>
+            <select class="form-control" id="selMonthFrom">
+              <option value="01">January</option>
+              <option value="02">February</option>
+              <option value="03">March</option>
+              <option value="04">April</option>
+              <option value="05">May</option>
+              <option value="06">June</option>
+              <option value="07">July</option>
+              <option value="08">August</option>
+              <option value="09">September</option>
+              <option value="10">October</option>
+              <option value="11">November</option>
+              <option value="12">December</option>
+            </select>
+            <select class="form-control" id="selYearFrom">
+              <option value="1994">1994</option>
+              <option value="1995">1995</option>
+              <option value="1996">1996</option>
+              <option value="1997">1997</option>
+              <option value="1998">1998</option>
+              <option value="1999">1999</option>
+              <option value="2000">2000</option>
+              <option value="2001">2001</option>
+              <option value="2002">2002</option>
+              <option value="2003">2003</option>
+              <option value="2004">2004</option>
+              <option value="2005">2005</option>
+              <option value="2006">2006</option>
+              <option value="2007">2007</option>
+              <option value="2008">2008</option>
+              <option value="2009">2009</option>
+              <option value="2010">2010</option>
+              <option value="2011">2011</option>
+              <option value="2012">2012</option>
+              <option value="2013">2013</option>
+              <option value="2014">2014</option>
+              <option value="2015">2015</option>
+              <option value="2016">2016</option>
+              <option value="2017">2017</option>
+            </select>
+            <select class="form-control" id="selYearTo">
+              <option value="1994">1994</option>
+              <option value="1995">1995</option>
+              <option value="1996">1996</option>
+              <option value="1997">1997</option>
+              <option value="1998">1998</option>
+              <option value="1999">1999</option>
+              <option value="2000">2000</option>
+              <option value="2001">2001</option>
+              <option value="2002">2002</option>
+              <option value="2003">2003</option>
+              <option value="2004">2004</option>
+              <option value="2005">2005</option>
+              <option value="2006">2006</option>
+              <option value="2007">2007</option>
+              <option value="2008">2008</option>
+              <option value="2009">2009</option>
+              <option value="2010">2010</option>
+              <option value="2011">2011</option>
+              <option value="2012">2012</option>
+              <option value="2013">2013</option>
+              <option value="2014">2014</option>
+              <option value="2015">2015</option>
+              <option value="2016">2016</option>
+              <option value="2017">2017</option>
+            </select>
+            <select class="form-control" id="selMonthTo">
+              <option value="01">January</option>
+              <option value="02">February</option>
+              <option value="03">March</option>
+              <option value="04">April</option>
+              <option value="05">May</option>
+              <option value="06">June</option>
+              <option value="07">July</option>
+              <option value="08">August</option>
+              <option value="09">September</option>
+              <option value="10">October</option>
+              <option value="11">November</option>
+              <option value="12">December</option>
+            </select>
+            <select class="form-control" id="selDayTo">
+              <option value="01">1</option>
+              <option value="02">2</option>
+              <option value="03">3</option>
+              <option value="04">4</option>
+              <option value="05">5</option>
+              <option value="06">6</option>
+              <option value="07">7</option>
+              <option value="08">8</option>
+              <option value="09">9</option>
+              <option value="10">10</option>
+              <option value="11">11</option>
+              <option value="12">12</option>
+              <option value="13">13</option>
+              <option value="14">14</option>
+              <option value="15">15</option>
+              <option value="16">16</option>
+              <option value="17">17</option>
+              <option value="18">18</option>
+              <option value="19">19</option>
+              <option value="20">20</option>
+              <option value="21">21</option>
+              <option value="22">22</option>
+              <option value="23">23</option>
+              <option value="24">24</option>
+              <option value="25">25</option>
+              <option value="26">26</option>
+              <option value="27">27</option>
+              <option value="28">28</option>
+              <option value="29">29</option>
+              <option value="30">30</option>
+              <option value="31">31</option>
+            </select>
+            <button type="button" class="btn btn-info btn-block" id="mySubmit">Submit</button>
+          </div>
+        </div>
+      </div>
+    </script>
+
+
+
+    <script id="news-template" type="text/x-handlebars-template">
+      <div class="item active">
+        <img src="{{urlToImage}}" alt="Los Angeles">
+      </div>
+    </script>
+    <script id="charts-template" type="text/x-handlebars-template">
+      <div class="char">
+        <div class="chartsteamA">{{teamA}}</div>
+        <div class="chartsteamB">{{teamB}}</div>
+        <div class="textStats">
+          <div class="teamAhome">
+            At <b>{{teamAB.teamA.Stadium}}</b>
+            <br>
+            <b>{{teamA}}</b> won {{teamAhome.teamAwins}} times
+            <br> The teams drew {{teamAhome.draws}} times
+            <br>
+            <b>{{teamB}}</b> won {{teamAhome.teamBwins}} times
+          </div>
+          <div class="teamBhome">
+            At <b>{{teamAB.teamB.Stadium}}</b>
+            <br>
+            <b>{{teamB}}</b> won {{teamBhome.teamBwins}} times
+            <br> The teams drew {{teamBhome.draws}} times
+            <br>
+            <b>{{teamA}}</b> won {{teamBhome.teamBwins}} times
+          </div>
+        </div>
+      </div>
+      <div id="chartdiv1">
+        <canvas id="teamAhomeChart" width="200" height="200"></canvas>
+      </div>
+      <div id="chartdiv2">
+        <canvas id="teamBhomeChart" width="200" height="200"></canvas>
+      </div>
+      <div class="chartheadline">
+        <br>Total results</div>
+      <div class="totalA">{{teamA}}
+        <br> won
+        <br> {{total.teamA}}
+        <br> time(s)</div>
+      <div class="totalB">{{teamB}}
+        <br> won
+        <br> {{total.teamB}}
+        <br> time(s)</div>
+      <div id="chartdiv">
+        <canvas id="myChart" width="200" height="200"></canvas>
+      </div>
+      
+    </script>
+    <script id="fixturesForCharts-template" type="text/x-handlebars-template">
+      <li class="list-group-item list-group-item-action fixtRow">
+        <div class="squadNumber">{{HomeTeam}}</div>
+        <div class="squadPosition">{{FTHG}}</div>
+        <div class="squadName">{{FTAG}}</div>
+        <div class="squadDOB">{{AwayTeam}}</div>
+      </li>
+    </script>
+    <script id="table-template" type="text/x-handlebars-template">
+      <li class="list-group-item list-group-item-action fixtRow">
+        <div class="position">{{position}}</div>
+        <div class="tableTeam">{{teamName}}</div>
+        <div class="points">{{points}}</div>
+        <div class="goaldifference">{{goalDifference}}</div>
+        <div class="played">{{playedGames}}</div>
+      </li>
+    </script>
+
+    <!-- Team page templates start here -->
+
+    <script id="teamStatColumns-template" type="text/x-handlebars-template">
+    <div class="column leftStats">
+      <div class="upcomingFixtures ">
+        <div class="list-group noborder">
+          <li class="list-group-item list-group-item-action headerr noborder" style="background-color: {{color2}}">
+            Upcoming fixtures
+          </li>
+          <div class="fixtures"></div>
+        </div>
+      </div>
+    </div>
+    <div class="column rightStats">
+      <div class="squadSheet">
+        <div class="list-group">
+          <li class="list-group-item list-group-item-action headerr noborder" style="background-color: {{color2}}">
+            Current Squad
+          </li>
+          <div class="players"> </div>
+        </div>
+      </div>
+    </div>
+  </script>
+  <script id="teamDetails-template" type="text/x-handlebars-template">
+    <div class="column left">
+      <li class="teamName"><span id="teamName">{{Team}}</span><img id="teamLogo" src="{{Logo_url}}"></li>
+      <li id="teamDetails">Stadium: {{Stadium}}</li>
+      <li id="teamDetails">Capacity: {{Capacity}}</li>
+      <div id="alltimeThrophies">
+        <li id="teamDetails">Trophies:</li>
+        <li id="epltrophies" class="trophycase"></li>
+        <li id="factrophies" class="trophycase"></li>
+        <li id="efltrophies" class="trophycase"></li>
+        <li id="ucltrophies" class="trophycase"></li>
+        <li id="ueltrophies" class="trophycase"></li>
+      </div>
+    </div>
+    <div class="column right">
+      <div id="stadium"></div>
+      <iframe id="googleMaps" width="90%" height="300" frameborder="0" style="border:0" src="https://www.google.com/maps/embed/v1/view?key=AIzaSyBMu9NYJuE-uc2hg4OvMpSunzmuNUjXVNM&center={{Latitude}},{{Longitude}}&zoom=17&maptype=satellite" allowfullscreen>
+      </iframe>
+    </div>
+  </script>
+  <script id="squadPlayer" type="text/x-handlebars-template">
+    <li class="list-group-item list-group-item-action fixtRow">
+      <div class="squadNumber">{{jerseyNumber}}</div>
+      <div class="squadPosition">{{position}}</div>
+      <div class="squadName">{{name}}</div>
+      <div class="squadDOB">{{dateOfBirth}}</div>
+      <div class="squadNationality">{{nationality}}</div>
+    </li>
+  </script>
+  <script id="fixtures" type="text/x-handlebars-template">
+    <li class="list-group-item list-group-item-action fixtRow">
+      <div class="date">{{date}}</div>
+      <div class="homeTeam">{{homeTeamName}} -</div>
+      <div class="awayTeam">{{awayTeamName}}</div>
+    </li>
+  </script>
+
+
+
+<!--   Team page templates end here -->
+  <script id="dynamicTable-template" type="text/x-handlebars-template">
+    <button type="button" class="btn btn-info" id="HomeTable">Home table</button>
+    <button type="button" class="btn btn-info" id="AwayTable">Away table</button>
+    <button type="button" class="btn btn-info" id="TotalTable">Complete table</button>
+
+    <div class="table">
+      <div class="list-group">
+        <li class="list-group-item list-group-item-action dynamicTableHeader noborder">
+        <div class="dynamicTable Team Name pos">Position</div>
+        <div class="dynamicTable Team Name">Team Name</div>
+
+        <div class="stats">
+          <div class="dynamicTable Home Played">Matches Played</div>
+          <div class="dynamicTable Home Win">Win</div>
+          <div class="dynamicTable Home Draw">Draw</div>
+          <div class="dynamicTable Home Lose">Lose</div>
+          <div class="dynamicTable Home GoalsScored">GF</div>
+          <div class="dynamicTable Home GoalsConceded">GA</div>
+          <div class="dynamicTable Home GoalDifference">GD</div>
+          <div class="dynamicTable Home Points">Points</div>
+
+          <div class="dynamicTable Away Played">Matches Played</div>
+          <div class="dynamicTable Away Win">Win</div>
+          <div class="dynamicTable Away Draw">Draw</div>
+          <div class="dynamicTable Away Lose">Lose</div>
+          <div class="dynamicTable Away GoalsScored">GF</div>
+          <div class="dynamicTable Away GoalsConceded">GA</div>
+          <div class="dynamicTable Away GoalDifference">GD</div>
+          <div class="dynamicTable Away Points">Points</div>
+
+          <div class="dynamicTable Total Played">Matches Played</div>
+          <div class="dynamicTable Total Win">Win</div>
+          <div class="dynamicTable Total Draw">Draw</div>
+          <div class="dynamicTable Total Lose">Lose</div>
+          <div class="dynamicTable Total GoalsScored">GF</div>
+          <div class="dynamicTable Total GoalsConceded">GA</div>
+          <div class="dynamicTable Total GoalDifference">GD</div>
+          <div class="dynamicTable Total Points">Points</div>
+        </div>
+        </li>
+        <div class="teamsForTable"></div>
+
+        <div class="teamsForTableInactive"></div>
+      </div>
+    </div>
+  </script>
+
+  <script id="dynamicTableRow-template" type="text/x-handlebars-template">
+      <li class="list-group-item list-group-item-action fixtRow clicker">
+        <div class="dynamicTable Team Name teamName pos">{{Position}}</div>
+        <div class="dynamicTable Team Name">{{Name}}</div>
+        
+        <div class="stats">
+          <div class="dynamicTable Home Played">{{HomePlayed}}</div>
+          <div class="dynamicTable Home Win">{{HomeWin}}</div>
+          <div class="dynamicTable Home Draw">{{HomeDraw}}</div>
+          <div class="dynamicTable Home Lose">{{HomeLose}}</div>
+          <div class="dynamicTable Home GoalsScored">{{HomeGoalsScored}}</div>
+          <div class="dynamicTable Home GoalsConceded">{{HomeGoalsConceded}}</div>
+          <div class="dynamicTable Home GoalDifference">{{HomeGoalDifference}}</div>
+          <div class="dynamicTable Home Points">{{HomePoints}}</div>
+
+          <div class="dynamicTable Away Played">{{AwayPlayed}}</div>
+          <div class="dynamicTable Away Win">{{AwayWin}}</div>
+          <div class="dynamicTable Away Draw">{{AwayDraw}}</div>
+          <div class="dynamicTable Away Lose">{{AwayLose}}</div>
+          <div class="dynamicTable Away GoalsScored">{{AwayGoalsScored}}</div>
+          <div class="dynamicTable Away GoalsConceded">{{AwayGoalsConceded}}</div>
+          <div class="dynamicTable Away GoalDifference">{{AwayGoalDifference}}</div>
+          <div class="dynamicTable Away Points">{{AwayPoints}}</div>
+
+          <div class="dynamicTable Total Played">{{TotalPlayed}}</div>
+          <div class="dynamicTable Total Win">{{TotalWin}}</div>
+          <div class="dynamicTable Total Draw">{{TotalDraw}}</div>
+          <div class="dynamicTable Total Lose">{{TotalLose}}</div>
+          <div class="dynamicTable Total GoalsScored">{{TotalGoalsScored}}</div>
+          <div class="dynamicTable Total GoalsConceded">{{TotalGoalsConceded}}</div>
+          <div class="dynamicTable Total GoalDifference">{{TotalGoalDifference}}</div>
+          <div class="dynamicTable Total Points">{{TotalPoints}}</div>
+      </div>    
+      </li>
+    </script>
+    <script id="dynamicTableRowInactive-template" type="text/x-handlebars-template">
+      <li class="list-group-item list-group-item-action fixtRow inactive clicker">
+        <div class="dynamicTable Team Name teamName pos">{{Position}}</div>
+        <div class="dynamicTable Team Name teamName">{{Name}}</div>
+        
+        <div class="stats">
+          <div class="dynamicTable Home Played">{{HomePlayed}}</div>
+          <div class="dynamicTable Home Win">{{HomeWin}}</div>
+          <div class="dynamicTable Home Draw">{{HomeDraw}}</div>
+          <div class="dynamicTable Home Lose">{{HomeLose}}</div>
+          <div class="dynamicTable Home GoalsScored">{{HomeGoalsScored}}</div>
+          <div class="dynamicTable Home GoalsConceded">{{HomeGoalsConceded}}</div>
+          <div class="dynamicTable Home GoalDifference">{{HomeGoalDifference}}</div>
+          <div class="dynamicTable Home Points">{{HomePoints}}</div>
+
+          <div class="dynamicTable Away Played">{{AwayPlayed}}</div>
+          <div class="dynamicTable Away Win">{{AwayWin}}</div>
+          <div class="dynamicTable Away Draw">{{AwayDraw}}</div>
+          <div class="dynamicTable Away Lose">{{AwayLose}}</div>
+          <div class="dynamicTable Away GoalsScored">{{AwayGoalsScored}}</div>
+          <div class="dynamicTable Away GoalsConceded">{{AwayGoalsConceded}}</div>
+          <div class="dynamicTable Away GoalDifference">{{AwayGoalDifference}}</div>
+          <div class="dynamicTable Away Points">{{AwayPoints}}</div>
+
+          <div class="dynamicTable Total Played">{{TotalPlayed}}</div>
+          <div class="dynamicTable Total Win">{{TotalWin}}</div>
+          <div class="dynamicTable Total Draw">{{TotalDraw}}</div>
+          <div class="dynamicTable Total Lose">{{TotalLose}}</div>
+          <div class="dynamicTable Total GoalsScored">{{TotalGoalsScored}}</div>
+          <div class="dynamicTable Total GoalsConceded">{{TotalGoalsConceded}}</div>
+          <div class="dynamicTable Total GoalDifference">{{TotalGoalDifference}}</div>
+          <div class="dynamicTable Total Points">{{TotalPoints}}</div>
+      </div>    
+      </li>
+    </script>
+
+    <script id="seasonSelector-template" type="text/x-handlebars-template">
+      <option value="{{i}}">{{i}}/{{j}}</option>
+    </script>
+
+
+
+    <script type="text/javascript" src="chart.js/dist/Chart.js"></script>
+    <script type="text/javascript" src="chart.js/dist/Chart.bundle.js"></script>
     <script type="text/javascript" src="bootstrap/dist/js/bootstrap.min.js"></script>
     <script type="text/javascript" src="handlebars/dist/handlebars.min.js"></script>
-    <script type="text/javascript" src="main.js"></script>
+
+    <script type="text/javascript" src="js/fixt.js"></script>
+    <script type="text/javascript" src="js/main.js"></script>
+    <script type="text/javascript" src="js/newsHomePage.js"></script>
 </body>
 
 </html>

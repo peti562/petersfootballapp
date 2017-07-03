@@ -1,0 +1,292 @@
+body {
+  margin: 0;
+  background-size: cover;
+}
+
+li {
+  list-style-type: none;
+  font-size: 20px;
+}
+
+nav li {
+  display: inline-block;
+}
+
+nav ul {
+  margin: 0;
+  text-align: center;
+}
+
+nav {
+  background-color: #38003C;
+  position: fixed;
+  width: 100%;
+  top: 0;
+  z-index: 1000;
+
+}
+
+nav li a { 
+  line-height: 50px;
+  text-decoration: none;
+
+  color: white;
+  font-size: 14px;
+  font-weight: bold;
+  padding: 0 18px;
+  font-family: Poppins;
+}
+
+nav li a:hover { 
+  line-height: 50px;
+  text-decoration: none;
+  color: white;
+  font-size: 14px;
+  font-weight: bold;
+  padding: 0 18px;
+  font-family: Poppins;
+}
+
+}
+.food img {
+  width: 100%;
+}
+.foodimg {
+  width: 100%;
+  height: 300px;
+}
+.column-inner {
+  padding: 5%;
+}
+.night-life {
+ 
+  text-decoration: none;
+  color: black;
+  text-align: center;
+}
+.padding {
+  padding: 5px;
+}
+.whiterow {
+  width: 100%;
+  float: left;
+  height: 10px;
+  background-color: white;
+}
+.column-30 {
+  width: 25%;
+  float: left;
+  height: 1500px;
+  background-color: white;
+}
+.row:before {
+  display: table;
+  content: "";
+}
+.row:after {
+  display: table;
+  content: "";
+  clear: both;
+}
+.team {
+ margin-top: 100px;
+  font-family: Poppins;
+}
+.left {
+  float: left;
+  width: 40%;
+
+  text-align: left;
+  margin-left: 5%;
+
+}
+#stadium{
+	margin-bottom: 10px;
+}
+.right {
+  float: right;
+  width: 55%;
+}
+#teamName {
+  font-size: 70px;
+  vertical-align: center;
+}
+.teamrow {
+  margin-left: 10%;
+  margin-right: 10%;
+  color: white;
+}
+#teamLogo {
+  width: 120px;
+  float: right;
+  margin-right: 2%;
+  margin-top: 5%;
+}
+.teamName {
+  margin-top: 10%;
+}
+#stadium {
+  margin: auto;
+  margin-top: 5%;
+  width: 90%;
+}
+#map {
+  height: 400px;
+  width: 100%;
+}
+#alltimeThrophies {
+  margin-top: 10%;
+}
+.teamStats1 {
+ /* background: linear-gradient(to bottom right, #ffffff, #b2af9c);*/
+  background: url(/bck/divback.png) no-repeat center fixed;
+  background-size: cover;
+  text-decoration: none;
+  color: black;
+  text-align: center;
+}
+.teamStatsrow {
+  padding-left: 10%;
+  padding-right: 10%;
+  color: white;
+}
+
+.teamStats1 {
+  
+}
+.Baloldal {
+  float: left;
+  width: 40%;
+
+  }
+
+
+.leftStats {
+  float: left;
+  width: 40%;
+
+	}
+.rightStats {
+  float: right;
+  width: 60%;
+}
+.upcomingFixtures {
+  margin: auto;
+  margin-top: 20px;
+  width: 90%;
+  background-color: white;
+  border-radius: 4px;
+}
+.tableheader {
+  background-color: purple;
+}
+.fixtRow {
+  font-size: 15px;
+}
+.date {
+  float: left;
+  display: inline-block;
+}
+.homeTeam {
+  display: inline-block;
+}
+.awayTeam {
+  display: inline-block;
+}
+.headerr {
+  background-color: #CC292B;
+  color: white;
+}
+.row {
+  margin-right: 0px;
+  margin-left: 0px;
+  padding-bottom: 25px;
+}
+#stadium{
+	width: 90%;
+	height: 300px;
+	background-color: blue;
+
+	background-size:     cover; 
+    background-repeat:   no-repeat;
+    background-position: center center;
+    margin-bottom: 25px;
+}
+
+
+.squadSheet {
+  float-left;
+  margin-top: 20px;
+  width: 100%;
+  background-color: white;
+  border-radius: 4px;
+
+}
+
+
+.squadNumber{
+	display: inline-block;
+	float: left;
+	width: 8%;
+	text-align: center;
+	}
+.squadPosition{
+	display: inline-block;
+	float: left;
+	width: 30%;
+	text-align: left
+}
+.squadName{
+	display: inline-block;
+	float: left;
+	width: 30%;
+}
+.squadDOB{
+  display: inline-block;
+  float: right;
+}
+.squadNationality{
+  display: inline-block;
+}
+.trophyIcon {
+	width:40px;
+	margin-bottom: 8px;
+}
+.trophycase {
+	margin-bottom: 10px;
+}
+
+.noborder{
+	border: 0px;
+}
+#headerImage {
+	float: left;
+	position: relative;
+	height: 100px;
+}
+
+#lowernav{
+	background-color: white;
+	clear:both;
+	height: 50px;
+}
+#navmenu {
+	float: left;
+}
+
+#teamsmenu{
+	padding: 10px;
+	vertical-align: center;
+	width: 100%;
+	padding-right: 50px;
+}
+
+.teamlogos {
+	height: 30px;
+
+	margin:auto;
+	padding-left: 2.5%;
+	float: right;
+
+
+}

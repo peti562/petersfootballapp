@@ -1,0 +1,794 @@
+body {
+  margin: 0;
+  background: url(/bck/bck_news.jpg) no-repeat;
+  background-size: 100%
+}
+
+li {
+  list-style-type: none;
+  font-size: 20px;
+}
+
+nav li {
+  display: inline-block;
+}
+
+nav ul {
+  margin: 0;
+  text-align: center;
+}
+
+.newsbigheader{
+  margin-top: 30px;
+  text-align: left;
+  font-size: 100px;
+  margin-left: 8%;
+}
+
+nav {
+  background-color: #38003C;
+  position: fixed;
+  width: 100%;
+  top: 0;
+  z-index: 1000;
+}
+
+nav li a {
+  line-height: 50px;
+  text-decoration: none;
+  color: white;
+  font-size: 14px;
+  font-weight: bold;
+  padding: 0 18px;
+  font-family: Poppins;
+}
+
+nav li a:hover {
+  line-height: 50px;
+  text-decoration: none;
+  color: white;
+  font-size: 14px;
+  font-weight: bold;
+  padding: 0 18px;
+  font-family: Poppins;
+}
+
+
+}
+.food img {
+  width: 100%;
+}
+.foodimg {
+  width: 100%;
+  height: 300px;
+}
+.column-inner {
+  padding: 5%;
+}
+.night-life {
+  text-decoration: none;
+  color: black;
+  text-align: center;
+}
+.padding {
+  padding: 5px;
+}
+.whiterow {
+  width: 100%;
+  float: left;
+  height: 10px;
+  background-color: white;
+}
+.column-30 {
+  width: 25%;
+  float: left;
+  height: 1500px;
+  background-color: white;
+}
+.row:before {
+  display: table;
+  content: "";
+}
+.row:after {
+  display: table;
+  content: "";
+  clear: both;
+}
+.team {
+  margin-top: 100px;
+  font-family: Poppins;
+}
+.left {
+  float: left;
+  width: 40%;
+  text-align: left;
+  margin-left: 5%;
+}
+#stadium {
+  margin-bottom: 10px;
+}
+.right {
+  float: right;
+  width: 55%;
+}
+#teamName {
+  font-size: 70px;
+  vertical-align: center;
+}
+.teamrow {
+  margin-left: 10%;
+  margin-right: 10%;
+  color: white;
+}
+#teamLogo {
+  width: 120px;
+  float: right;
+  margin-right: 2%;
+  margin-top: 5%;
+}
+.teamName {
+  margin-top: 10%;
+}
+#stadium {
+  margin: auto;
+  margin-top: 5%;
+  width: 90%;
+}
+#map {
+  height: 400px;
+  width: 100%;
+}
+#alltimeThrophies {
+  margin-top: 10%;
+}
+.teamStats1 {
+  /* background: linear-gradient(to bottom right, #ffffff, #b2af9c);*/
+  
+  background: url(/bck/divback.png) no-repeat center fixed;
+  background-size: cover;
+  text-decoration: none;
+  color: black;
+  text-align: center;
+  padding-top: 120px;
+}
+.teamStatsrow {
+  padding-left: 10%;
+  padding-right: 10%;
+  color: white;
+}
+.teamStats1 {}
+.leftStats {
+  float: left;
+  width: 30%;
+}
+.rightStats {
+  float: right;
+  width: 70%;
+}
+
+
+
+.newsRow{
+  width: 100%;
+  background-color: #38003C;
+  margin-top: 120px;
+  box-shadow: 0px 0px 15px black;
+  border-radius: 5px;
+}
+
+.newsColumn {
+
+  width: 90%;
+
+  margin: auto;
+  margin-top: 50px;
+  border-radius: 5px;
+}
+.newsHeadline {
+  text-align: right;
+  text-decoration: none;
+  color:white;
+}
+
+a:link {
+  text-decoration: none;
+  color:white;
+}
+
+a:visited {
+  text-decoration: none;
+  color:white;
+}
+
+a:hover {
+
+  color:#EAFF04;
+}
+
+.newsBody {
+  text-align: right;
+  font-size: 20px;
+  text-decoration: none;
+  color:white;
+}
+
+.newsBox {
+  background-color: #38003C;
+  height: 400px;
+  width: 100%;
+  color:white;
+}
+.newsImage{
+ padding: 4% 30% 8% 5%;
+  height: 100%;
+  display: block;
+  margin: 0 auto;
+}
+
+
+.newsPic {
+  float: left;
+  width: 58%;
+ height: 400px;
+}
+
+.newsText {
+
+  margin-top: 10px;
+  margin-right: 5px;
+  float: right;
+  width: 40%;
+ height: 400px;
+  background-color: #38003C;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+.upcomingFixtures {
+  margin: auto;
+
+  width: 90%;
+  background-color: white;
+  border-radius: 4px;
+}
+.tableheader {
+  background-color: purple;
+}
+.fixtRow {
+  font-size: 15px;
+  height: 40px;
+}
+.date {
+  float: left;
+  display: inline-block;
+}
+.homeTeam {
+  display: inline-block;
+}
+.awayTeam {
+  display: inline-block;
+}
+
+.fixtures {
+  margin-top: -20px;
+}
+
+.headerr {
+  background-color: #EAFF04;
+  color: black;
+  font-size: 15px;
+}
+.row {
+  margin-right: 0px;
+  margin-left: 0px;
+  padding-bottom: 25px;
+}
+#stadium {
+  width: 90%;
+  height: 300px;
+  background-color: blue;
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center center;
+
+}
+.squadSheet {
+  margin: auto;
+
+  width: 90%;
+  background-color: white;
+  border-radius: 4px;
+}
+.squadNumber {
+  display: inline-block;
+  float: left;
+  width: 8%;
+  text-align: center;
+}
+.squadPosition {
+  display: inline-block;
+  float: left;
+  width: 30%;
+  text-align: left
+}
+.squadName {
+  display: inline-block;
+  float: left;
+  width: 30%;
+}
+.squadDOB {
+  display: inline-block;
+  float: right;
+}
+.squadNationality {
+  display: inline-block;
+}
+.trophyIcon {
+  width: 40px;
+  margin-bottom: 8px;
+}
+.trophycase {
+  margin-bottom: 10px;
+}
+.noborder {
+  border: 0px;
+}
+#headerImage {
+  float: left;
+  position: relative;
+  height: 100px;
+}
+#lowernav {
+  background-color: white;
+  clear: both;
+  height: 50px;
+}
+#navmenu {
+  float: left;
+}
+#teamsmenu {
+  padding: 10px;
+  vertical-align: center;
+  width: 100%;
+  padding-right: 50px;
+}
+.teamlogos {
+  height: 30px;
+  margin: auto;
+  padding-left: 2.5%;
+  float: right;
+}
+.table {
+  line-height: 1;
+  box-shadow: 0px 0px 10px #888888;
+}
+
+.helloHead{
+  font-family: Poppins;
+  font-size: 60px;
+  text-align: left;
+  font-weight: bold;
+}
+
+.helloBody{
+  font-family: Poppins;
+  font-size: 20px;
+  text-align: left;
+}
+
+.helloPara{
+  font-family: Poppins;
+  font-size: 16px;
+  text-align: left;
+}
+
+.container {
+  width: 600px;
+  padding: 20px;
+  margin: auto;
+  background: #ddd;
+}
+
+#selYearFrom{
+  width: 12%;
+  display: inline-block;
+  float: left;
+  background-color: #EAFF04;
+  margin-top: 10px;
+}
+
+#selMonthFrom{
+  width: 23%;
+  display: inline-block;
+  float: left;
+  background-color: #EAFF04;
+  margin-top: 10px;
+}
+
+
+#selDayFrom{
+  width: 10%;
+  display: inline-block;
+  background-color: #EAFF04;
+  float: left;
+  margin-top: 10px;
+}
+
+#selYearTo{
+  width: 12%;
+  display: inline-block;
+  background-color: #EAFF04;
+  float: right;
+  margin-top: 10px;
+}
+
+.chartheadline{
+  clear: both;
+  font-size: 100px;
+  margin: auto;
+  margin-top: 50px;
+  color: #38003C;
+  margin-bottom: 50px;
+  text-align: center;
+}
+
+#chartdiv {
+  width: 40%;
+  margin: auto;
+  margin-bottom: 100px;
+}
+
+.totalA {
+  margin-top: 10px;
+  float: left;
+  text-transform: uppercase;
+  width: 30%;
+  height: 200px;
+  text-align: center;
+  font-family: Poppins;
+  color: #38003C;
+  font-size: 50px;
+}
+
+.totalB {
+  float: right;
+  text-transform: uppercase;
+  width: 30%;
+  height: 200px;
+  text-align: center;
+  font-family: Poppins;
+  color: #38003C;
+  font-size: 50px;
+}
+
+#chartdiv1 {
+  width: 30%;
+  float: left;
+
+  display: inline-block;
+  margin: auto;
+}           
+
+#chartdiv2 {
+  width: 30%;
+  display: inline-block;
+  float: right;
+
+  margin: auto;
+}           
+
+#myChart {
+  margin: auto;
+}
+
+#selMonthTo{
+  width: 23%;
+  display: inline-block;
+  background-color: #EAFF04;
+  float: right;
+  margin-top: 10px;
+}
+
+
+
+#boom {
+  transition: all .5s ease-in-out;
+}
+
+#boom1 {
+  transition: all .5s ease-in-out;
+}
+
+.visible {
+  visibility: visible;
+  opacity: 1;
+  transition: opacity 2s linear;
+}
+
+.hidden {
+  visibility: hidden;
+  opacity: 0;
+  transition: visibility 0s 2s, opacity 2s linear;
+}
+.halfsized {
+  width: 50%;
+}
+
+.squadSheet {
+  margin: auto;
+  margin-top: 20px;
+  width: 90%;
+  background-color: white;
+  border-radius: 4px;
+
+}
+
+.squadSheetLeft {
+  float:left;
+  margin-top: 20px;
+  width: 40%;
+  background-color: white;
+  border-radius: 4px;
+  color: #38003C;
+}
+
+.squadSheetRight {
+  float:right;
+  margin-top: 20px;
+  width: 40%;
+  background-color: white;
+  border-radius: 4px;
+  color: #38003C;
+}
+
+
+.squadNumber{
+  display: inline-block;
+  float: left;
+  width: 8%;
+  text-align: center;
+  }
+.squadPosition{
+  display: inline-block;
+  float: left;
+  width: 30%;
+  text-align: left
+}
+.squadName{
+  display: inline-block;
+  float: left;
+  width: 30%;
+}
+.squadDOB{
+  display: inline-block;
+  float: right;
+}
+.squadNationality{
+  display: inline-block;
+}
+
+#boom2 {
+  transition: all .5s ease-in-out;
+}
+
+.textStats {
+  clear: both;
+margin-bottom: 20px;
+}
+
+.teamAhome {
+  width:50%;
+  font-family: Poppins;
+  font-size: 30px;
+  text-align: left;
+  float: left;
+  color: #38003C;
+  display: inline-block;
+  margin-bottom: 30px;
+}
+
+.teamBhome {
+  width:50%;
+  font-family: Poppins;
+  font-size: 30px;
+  text-align: right;
+  float: right;
+  color: #38003C;
+  display: inline-block;
+    margin-bottom: 30px;
+}
+
+.char{
+  clear: both;
+}
+.chartsteamVS{
+
+  text-align: center;
+  width:15%;
+  font-family: Poppins;
+  font-size: 40px;
+  color: #38003C;
+  display: inline-block;
+}
+.chartsteamA{
+  width:50%;
+  font-family: Poppins;
+  font-size: 60px;
+  text-align: left;
+  float: left;
+  color: #38003C;
+  display: inline-block;
+  margin-bottom: 20px;
+}
+.chartsteamB{
+  text-align: right;
+  width:50%;
+  font-family: Poppins;
+  font-size: 60px;
+  float: right;
+  color: #38003C;
+  display: inline-block;
+  margin-bottom: 20px;
+}
+
+#selDayTo{
+  width: 10%;
+  display: inline-block;
+  background-color: #EAFF04;
+  float: right;
+  margin-top: 10px;
+  margin-bottom: 30px;
+}
+
+.formheadline{
+  width: 100%;
+  float: left;
+  font-size: 25px;
+  margin-bottom: 20px;
+  text-align: center;
+
+}
+
+.formheadline2{
+  width: 100%;
+  float: left;
+  margin-top: 20px;
+  font-size: 25px;
+  margin-bottom: 20px;
+  text-align: center;
+
+}
+
+#mySubmit{
+  background-color: #EAFF04;
+  color: black;
+  font-family: Poppins;
+  font-size: 20px;
+  margin-bottom: 20px;
+}
+
+#selTeamA {
+  background-color: #EAFF04;
+  width: 40%;
+  height: 40px;
+}
+
+#selTeamB {
+
+
+  margin-left: 10%; 
+  width: 40%;
+  height: 40px;
+  background-color: #EAFF04;
+}
+
+#searchForm {
+  margin: auto;
+  width: 90%;
+  margin-top: 20px;
+}
+
+#selTeamA {
+  font-family: Poppins;
+  font-size: 15px;
+  text-align: center;
+  width: 45%;
+  float: left;
+}
+
+#selTeamB {
+  font-family: Poppins;
+  width: 45%;
+  float: right;
+}
+
+.hello{
+  width: 90%;
+  height: 300px;
+  margin: auto;
+  color: white;
+  background-color: #37033C;
+  border-radius: 5px;
+  padding: 15px 30px 15px 30px;
+  margin-bottom: 20px;
+/*  box-shadow: 0px 0px 10px #888888;*/
+}
+
+.search {
+  width: 90%;
+  margin: auto;
+  color: white;
+  background-color: #37033C;
+  border-radius: 5px;
+  padding: 15px 30px 15px 30px;
+  margin-bottom: 20px;
+}
+
+.fixtRow:hover{
+  background-color: #e2e2e2;
+}
+
+.Atable {
+  display: inline-block;
+  width: 90%;
+}
+.position {
+  display: inline-block;
+  float: left;
+  width: 4%;
+  text-align: center;
+}
+.tableTeam {
+  display: inline-block;
+  width: 60%;
+  text-align: center;
+}
+.played {
+  display: inline-block;
+  width: 6%;
+  float: right;
+  padding-right: 12%;
+  text-align: center;
+}
+.goaldifference {
+  display: inline-block;
+  float: right;
+  padding-right: 12%;
+  width: 6%;
+  text-align: center;
+}
+.points {
+  display: inline-block;
+  float: right;
+
+  width: 6%;
+
+}
+.list-group-item {
+  position: relative;
+}
