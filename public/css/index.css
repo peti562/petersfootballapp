@@ -380,14 +380,22 @@ a:hover {
 #teamsmenu {
   padding: 10px;
   vertical-align: center;
-  width: 100%;
-  padding-right: 50px;
+  width: 85%;
+  float: right;
+  
 }
-.teamlogos {
-  height: 30px;
+.teamlogos{
+  margin-left: 2%; 
+  width: 2.6%;
+  display: inline-block;
+}
+.teamlogoUnique {
+ 
+  height: 60%;
+  max-height: 30px;
   margin: auto;
   padding-left: 2.5%;
-  float: right;
+ 
 }
 .table {
   line-height: 1;

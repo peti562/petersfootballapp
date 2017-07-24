@@ -1,29 +1,16 @@
-var selectedFixtures = [];
 var selectedF = [];
 var filteredData = {};
 
 function fetchFixturesToCompare(teamA, teamB, from, to) {
-  selectedF = [];
   var dateTo = new Date(from);
   var dateFrom = new Date(to);
   $.ajax({
-    url: '/epl/games.json',
+    // url: '/seasons/'+teamA+'/'+teamB+'/'+from+'/'+to,
+    url: '/seasons/'+teamA+'/'+teamB+'/1976/2016',
     type: 'GET',
     dataType: 'json',
     success: function(data) {
-      var games = data;
-      for (var i = 0; i < games.length; i++) {
-        if ((teamA === games[i].HomeTeam || teamA === games[i].AwayTeam) && (teamB === games[i].HomeTeam || teamB === games[i].AwayTeam)) {
-          var newDate = new Date(games[i].Date);
-          games[i].Date = newDate;
-          selectedF.push(games[i]);
-        }
-      }
-      for (var i = 0; i < selectedF.length; i++) {
-        if (selectedF[i].Date > dateFrom.getTime() && selectedF[i].Date < dateTo.getTime()) {
-          selectedFixtures.push(selectedF[i]);
-        }
-      }
+      selectedF = data;
       addResult(teamA, teamB);
     }
   })
@@ -32,9 +19,9 @@ function fetchFixturesToCompare(teamA, teamB, from, to) {
 function addResult(teamA, teamB) {
   for (var i = 0; i < selectedF.length; i++) {
     var sf = selectedF[i]
-    if (sf.FTHG > sf.FTAG) {
+    if (sf.HomeGoals > sf.AwayGoals) {
       sf.result = sf.HomeTeam
-    } else if (sf.FTHG < sf.FTAG) {
+    } else if (sf.HomeGoals < sf.AwayGoals) {
       sf.result = sf.AwayTeam
     } else {
       sf.result = null;
@@ -137,11 +124,11 @@ function renderFixtures(filteredData) {
   teamBhomeChart(filteredData);
   myChart(filteredData);
   // renderFixturesForCharts(filteredData);
-  document.getElementById("myChart").width = 400;
-  document.getElementById("myChart").height = 400;
+  // document.getElementById("myChart").width = 400;
+  // document.getElementById("myChart").height = 400;
 
 
-  styler();
+  // styler();
 
 }
 
@@ -156,10 +143,10 @@ function renderFixtures(filteredData) {
 
 // }
 
-function styler() {
-  document.getElementById("teamAhomeChart").width = 150;
-  document.getElementById("teamAhomeChart").height = 150;
-}
+// function styler() {
+//   document.getElementById("teamAhomeChart").width = 150;
+//   document.getElementById("teamAhomeChart").height = 150;
+// }
 
 function myChart(data) {
   var ctx = document.getElementById("myChart");
