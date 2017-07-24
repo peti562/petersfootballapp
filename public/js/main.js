@@ -2,6 +2,7 @@ var selectedClub = [];
 var activePage = 'HomePage';
 var currentTeams = [];
 var currentSeasonFixtures = [];
+var allLeagueFixtures = [];
 
 var renderMainPage = function() {
   var source = $('#statColumns-template').html();
@@ -133,18 +134,17 @@ var trophyDrawer = function() {
 var fetchAllFixtures = function(seasonRequest, leagueRequest) {
 
   $.ajax({
-    url: '/epl/allLeague.json',
+    url: '/seasons/'+seasonRequest,
     dataType: 'json',
     type: 'GET',
     success: function(data) {
-      var allLeagueFixtures = data;
+      allLeagueFixtures = data;
       var alreadyInThere = false;
       for (var i = 0; i < allLeagueFixtures.length; i++) {
-        if (seasonRequest === allLeagueFixtures[i].Season) {
           if (leagueRequest === allLeagueFixtures[i].Division) {
             currentSeasonFixtures.push(allLeagueFixtures[i]);
           }
-        }
+        
       } // I have all matches from the requested season and division
       var teamPutter = {
         Name: currentSeasonFixtures[0].HomeTeam,
@@ -461,6 +461,9 @@ var seasonSelector = function() {
       helper+=1;
   }
   $('#submitSeason').on('click', function() {
+  allLeagueFixtures = [];
+  currentTeams = [];
+  currentSeasonFixtures = [];
   var sR = $(this).siblings('#selectSeason').val();
   var seasonRequest = parseInt(sR);
   // var leagueRequest = $(this).siblings('#selectLeague').val();
