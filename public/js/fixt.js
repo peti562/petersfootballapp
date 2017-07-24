@@ -2,7 +2,7 @@ var selectedFixtures = [];
 var selectedF = [];
 var filteredData = {};
 
-function fetchFixtures(teamA, teamB, from, to) {
+function fetchFixturesToCompare(teamA, teamB, from, to) {
   selectedF = [];
   var dateTo = new Date(from);
   var dateFrom = new Date(to);

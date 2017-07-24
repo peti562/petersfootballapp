@@ -24,7 +24,7 @@ var buttonBinding = function() {
     var dateFrom = fromM + "/" + fromD + "/" + fromY;
     var dateTo = toM + "/" + toD + "/" + toY;
     homepageStyling();
-    fetchFixtures(teamA, teamB, dateFrom, dateTo);
+    fetchFixturesToCompare(teamA, teamB, dateFrom, dateTo);
   });
 }
 var homepageStyling = function() {
