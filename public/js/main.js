@@ -70,7 +70,7 @@ var fetchSquad = function() {
   $('.statsRow').append(newHTML);
   $.ajax({
     headers: { 'X-Auth-Token': '39d5903e73c34ce2bdcbd0d280f3765f' },
-    url: 'https://api.football-data.org/v1/teams/' + selectedClub.TID + '/players',
+    url: 'http://api.football-data.org/v1/teams/' + selectedClub.TID + '/players',
     dataType: 'json',
     type: 'GET',
     success: function(data) {
