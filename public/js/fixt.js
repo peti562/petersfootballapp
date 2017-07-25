@@ -1,12 +1,11 @@
 var selectedF = [];
 var filteredData = {};
 
-function fetchFixturesToCompare(teamA, teamB, from, to) {
-  var dateTo = new Date(from);
-  var dateFrom = new Date(to);
+function fetchFixturesToCompare(teamA, teamB, seasonFrom, seasonTo) {
+ 
   $.ajax({
     // url: '/seasons/'+teamA+'/'+teamB+'/'+from+'/'+to,
-    url: '/seasons/'+teamA+'/'+teamB+'/1976/2016',
+    url: '/seasons/'+teamA+'/'+teamB+'/'+seasonFrom+'/'+seasonTo,
     type: 'GET',
     dataType: 'json',
     success: function(data) {

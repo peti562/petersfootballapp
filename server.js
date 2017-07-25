@@ -53,9 +53,11 @@ app.get('/seasons/:fixtureID', function (req, res, next) {
 app.get('/seasons/:teamA/:teamB/:from/:to', function (req, res, next) {
   var teamA = req.params.teamA;
   var teamB = req.params.teamB;
+  var seasonFrom = parseInt(req.params.from);
+  var seasonTo = parseInt(req.params.to);
   Fixture.find(
     {$and:[
-      {Season:{'$gte':req.params.from, '$lte':req.params.to}},
+      {Season:{'$gte':seasonFrom, '$lte':seasonTo}},
       {$or:[
     {$and:[{HomeTeam:teamA}, {AwayTeam:teamB}]},
     {$and:[{HomeTeam:teamB}, {AwayTeam:teamA}]}

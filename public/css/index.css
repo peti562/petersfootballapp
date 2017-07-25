@@ -171,11 +171,11 @@ nav li a:hover {
 .teamStats1 {}
 .leftStats {
   float: left;
-  width: 30%;
+  width: 50%;
 }
 .rightStats {
   float: right;
-  width: 70%;
+  width: 50%;
 }
 
 
@@ -709,20 +709,6 @@ margin-bottom: 20px;
   margin-bottom: 20px;
 }
 
-#selTeamA {
-  background-color: #EAFF04;
-  width: 40%;
-  height: 40px;
-}
-
-#selTeamB {
-
-
-  margin-left: 10%; 
-  width: 40%;
-  height: 40px;
-  background-color: #EAFF04;
-}
 
 #searchForm {
   margin: auto;
@@ -736,17 +722,44 @@ margin-bottom: 20px;
   text-align: center;
   width: 45%;
   float: left;
+  background-color: #EAFF04;
+  width: 40%;
+  height: 40px;
+}
+
+#selectSeasonFrom {
+  font-family: Poppins;
+  font-size: 15px;
+  text-align: center;
+  width: 45%;
+  float: left;
+  background-color: #EAFF04;
+  width: 40%;
+  height: 40px;
+}
+
+#selectSeasonTo {
+  font-family: Poppins;
+  width: 45%;
+  float: right;
+  margin-left: 10%; 
+  width: 40%;
+  height: 40px;
+  background-color: #EAFF04;
 }
 
 #selTeamB {
   font-family: Poppins;
   width: 45%;
   float: right;
+  margin-left: 10%; 
+  width: 40%;
+  height: 40px;
+  background-color: #EAFF04;
 }
 
 .hello{
   width: 90%;
-  height: 300px;
   margin: auto;
   color: white;
   background-color: #37033C;

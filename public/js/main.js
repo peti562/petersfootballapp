@@ -3,6 +3,7 @@ var activePage = 'HomePage';
 var currentTeams = [];
 var currentSeasonFixtures = [];
 var allLeagueFixtures = [];
+var seasonsWorking= {from:1963, to:2016}
 
 var renderMainPage = function() {
   var source = $('#statColumns-template').html();
@@ -15,16 +16,10 @@ var buttonBinding = function() {
   $('#mySubmit').on('click', function() {
     var teamA = $(this).siblings('#selTeamA').val();
     var teamB = $(this).siblings('#selTeamB').val();
-    var fromY = $(this).siblings('#selYearFrom').val();
-    var fromM = $(this).siblings('#selMonthFrom').val();
-    var fromD = $(this).siblings('#selDayFrom').val();
-    var toY = $(this).siblings('#selYearTo').val();
-    var toM = $(this).siblings('#selMonthTo').val();
-    var toD = $(this).siblings('#selDayTo').val();
-    var dateFrom = fromM + "/" + fromD + "/" + fromY;
-    var dateTo = toM + "/" + toD + "/" + toY;
+    var seasonFrom = $(this).siblings('#selectSeasonFrom').val();
+    var seasonTo = $(this).siblings('#selectSeasonTo').val();
     homepageStyling();
-    fetchFixturesToCompare(teamA, teamB, dateFrom, dateTo);
+    fetchFixturesToCompare(teamA, teamB, seasonFrom, seasonTo);
   });
 }
 var homepageStyling = function() {
@@ -342,6 +337,28 @@ var fixturesDataCalculator = function() {
 }
 
 
+function mainPageTable () {
+  $.ajax({
+    headers: { 'X-Auth-Token': '39d5903e73c34ce2bdcbd0d280f3765f' },
+    url: 'http://api.football-data.org/v1/competitions/445/leagueTable',
+    dataType: 'json',
+    type: 'GET',
+    success: function(data) {
+      myData = data.standing;
+      console.log(myData);
+      $('#mainPageTable').empty();
+      for (var i = 0; i < myData.length; i++) {
+        var source = $('#table-template').html();
+        var template = Handlebars.compile(source);
+        var newHTML = template(myData[i]);
+        $('#mainPageTable').append(newHTML);
+      }
+      
+    }
+  });
+}
+
+
 
 var tableSortingTotal = function() {
   currentTeams.sort(function (a, b) {
@@ -449,6 +466,8 @@ var activator = function(thisTeam) {
 
 var seasonSelector = function() {
   $('#selectSeason').empty();
+  $('#selectSeasonFrom').empty();
+  $('#selectSeasonTo').empty();
   for (var i = 1963; i<2017; i++) {
       var helper= {
         i:i,
@@ -458,6 +477,8 @@ var seasonSelector = function() {
       var template = Handlebars.compile(source);
       var newHTML = template(helper);
       $('#selectSeason').append(newHTML);
+      $('#selectSeasonFrom').append(newHTML);
+      $('#selectSeasonTo').append(newHTML);
       helper+=1;
   }
   $('#submitSeason').on('click', function() {
@@ -466,7 +487,6 @@ var seasonSelector = function() {
   currentSeasonFixtures = [];
   var sR = $(this).siblings('#selectSeason').val();
   var seasonRequest = parseInt(sR);
-  // var leagueRequest = $(this).siblings('#selectLeague').val();
   fetchAllFixtures(seasonRequest, 1);
 })
 }
@@ -478,6 +498,7 @@ activeClicker();
 trophyDrawer();
 tableChangingButtons();
 seasonSelector();
+mainPageTable ();
 
 document.body.style.background = "url('/bck/" + activePage + ".jpg') no-repeat center fixed";
 document.body.style.backgroundSize = "cover";
