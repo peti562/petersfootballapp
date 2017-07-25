@@ -449,7 +449,7 @@ var activator = function(thisTeam) {
 
 var seasonSelector = function() {
   $('#selectSeason').empty();
-  for (var i = 1888; i < 2017; i++) {
+  for (var i = 1963; i<2017; i++) {
       var helper= {
         i:i,
         j:i+1
