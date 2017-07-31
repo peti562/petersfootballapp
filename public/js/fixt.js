@@ -27,8 +27,9 @@ function addResult(teamA, teamB) {
     }
   }
   fetchTeamOnly(teamA, teamB);
-
 };
+
+
 
 var fetchTeamOnly = function(teamA, teamB) {
   var clubs = [];
@@ -60,17 +61,23 @@ function pieChartData(teamA, teamB, teamAB) {
   var teamAhome = {
     teamAwins: 0,
     draws: 0,
-    teamBwins: 0
+    teamBwins: 0,
+    teamAgoals: 0,
+    teamBgoals: 0
   };
   var teamBhome = {
     teamBwins: 0,
     draws: 0,
-    teamAwins: 0
+    teamAwins: 0,
+    teamAgoals: 0,
+    teamBgoals: 0
   };
   var total = {
     teamA: 0,
     draws: 0,
-    teamB: 0
+    teamB: 0,
+    teamAgoals: 0,
+    teamBgoals: 0
   };
   var sf = selectedF;
   for (var i = 0; i < sf.length; i++) {
@@ -82,6 +89,8 @@ function pieChartData(teamA, teamB, teamAB) {
       } else {
         teamAhome.draws++;
       }
+      teamAhome.teamAgoals += sf[i].HomeGoals;
+      teamAhome.teamBgoals += sf[i].AwayGoals;
     } else if (sf[i].HomeTeam === teamB) {
       if (sf[i].result === teamA) {
         teamBhome.teamAwins++;
@@ -90,11 +99,15 @@ function pieChartData(teamA, teamB, teamAB) {
       } else {
         teamBhome.draws++;
       }
+      teamBhome.teamBgoals += sf[i].HomeGoals;
+      teamBhome.teamAgoals += sf[i].AwayGoals;
     }
   }
   total.teamA = teamAhome.teamAwins + teamBhome.teamAwins;
   total.draws = teamAhome.draws + teamBhome.draws;
   total.teamB = teamBhome.teamBwins + teamAhome.teamBwins;
+  total.teamAgoals = teamBhome.teamAgoals + teamAhome.teamAgoals;
+  total.teamBgoals = teamBhome.teamBgoals + teamAhome.teamBgoals;
 
 
   filteredData = {

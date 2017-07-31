@@ -80,7 +80,6 @@ app.get('/seasons/:teamA/:teamB/:from/:to', function (req, res, next) {
 
 
 
-
 // app.get('/epl', function(req, res) {
 //   Post.find(handler(res));
 // });
